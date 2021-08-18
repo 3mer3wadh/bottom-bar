@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BottomBar.MainPage" BackgroundColor="White">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="bg">#FFEEE9E4</Color>
+            <SolidColorBrush x:Key="fg" Color="#FF878C92"/>
+            <Color x:Key="sec">#FFD9D5D2</Color>
+
+            <Style TargetType="Path">
+                <Setter Property="Stroke" Value="{StaticResource fg}"/>
+                <Setter Property="Aspect" Value="Uniform"/>
+                <Setter Property="Margin" Value="13"/>
+                <Setter Property="StrokeThickness" Value="1.7"/>
+                <Setter Property="StrokeLineCap" Value="Round"/>
+                <Setter Property="StrokeLineJoin" Value="Round"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <ControlTemplate x:Key="RadioButtonTemplate">
+                <Frame BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                       Padding="0" CornerRadius="20" Margin="4">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CheckedStates">
+                                <VisualState x:Name="Checked">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="{StaticResource sec}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                    <Grid >
+                        <ContentPresenter VerticalOptions="Center" HorizontalOptions="Center" />
+                    </Grid>
+                </Frame>
+            </ControlTemplate>
+            <Style TargetType="RadioButton">
+                <Setter Property="ControlTemplate" Value="{StaticResource RadioButtonTemplate}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Label x:Name="label1" VerticalOptions="Center" HorizontalOptions="Center" FontSize="25" FontAttributes="Bold"/>
+
+        <Grid x:Name="grid1" HeightRequest="0" VerticalOptions="End">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Transparent" />
+                    <GradientStop Color="Gray" Offset="0.2"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <BoxView  Color="{StaticResource sec}" CornerRadius="20,20,0,0" Margin="0,25,0,0"/>
+            <Label Text="More Items Here..." VerticalOptions="Center" HorizontalOptions="Center" 
+                   TextColor="#FF878C92" FontSize="20" FontAttributes="Bold"/>
+        </Grid>
+        <Grid HeightRequest="65" VerticalOptions="End" ColumnDefinitions="*,*,*,*,*" Padding="0,18,0,0">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Transparent" Offset="0"/>
+                    <GradientStop Color="Gray" Offset="0.4"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <BoxView Color="{StaticResource bg}" Grid.ColumnSpan="5" CornerRadius="20,20,0,0">
+            </BoxView>
+            <Path x:Name="path11" Stroke="Black" StrokeThickness="3" Grid.ColumnSpan="5" Margin="0">
+
+            </Path>
+            <RadioButton ClassId="r1" CheckedChanged="RadioButton_CheckedChanged" IsChecked="True"  >
+                <RadioButton.Content>
+                    <Path  Data="M33.217,22.703 C33.217,22.7 32.48,26.13 29.92,26.13 27.37,26.14 
+                    7.69,26.134 4.33,26.14 0.95,26.135999 0.94999991,22.852541 0.94999997,22.852541 
+                    0.94999991,22.852541 33.217,22.702999 33.217,22.703 z M2.6159998,17.700999 L31.217998,17.700999 
+                    C32.276177,17.700999 33.134,18.469503 33.134,19.417499 33.134,20.365497 32.276177,21.134 31.217998,21.134 
+                    L2.6159998,21.134 C1.5578224,21.134 0.70000002,20.365497 0.70000002,19.417499 0.70000002,18.469503 
+                    1.5578224,17.700999 2.6159998,17.700999 z M17.385593,0.70030722 C33.538896,0.77898154 33.134076,15.968702 
+                    33.134076,15.968702 L1.0334514,15.969 C1.033452,15.969 0.45656353,0.86365637 17.000929,0.70127234 
+                    17.130182,0.70000395 17.2584,0.69968733 17.385593,0.70030722 z M23.691877,12.599203 C24.289147,12.599203
+                    24.773329,13.06232 24.773329,13.633602 24.773329,14.204885 24.289147,14.668 23.691877,14.668 23.094607,14.668 
+                    22.610424,14.204885 22.610424,13.633602 22.610424,13.06232 23.094607,12.599203 23.691877,12.599203 z 
+                    M16.722515,11.98592 C17.319784,11.98592 17.803968,12.449036 17.803968,13.020319 17.803968,13.591602 
+                    17.319784,14.054717 16.722515,14.054717 16.125245,14.054717 15.641063,13.591602 15.641063,13.020319 
+                    15.641063,12.449036 16.125245,11.98592 16.722515,11.98592 z M5.7474527,11.98592 C6.3447229,11.98592 
+                    6.8289054,12.449036 6.8289054,13.020319 6.8289054,13.591602 6.3447229,14.054717 5.7474527,14.054717 
+                    5.1501825,14.054717 4.666,13.591602 4.666,13.020319 4.666,12.449036 5.1501825,11.98592 5.7474527,11.98592 
+                    z M28.418546,11.833289 C29.015816,11.83329 29.499999,12.296405 29.499999,12.867687 29.499999,13.43897 
+                    29.015816,13.902086 28.418546,13.902086 27.821276,13.902086 27.337094,13.43897 27.337094,12.867687 
+                    27.337094,12.296405 27.821276,11.83329 28.418546,11.833289 z M10.954768,10.683038 C11.552038,10.683038 
+                    12.03622,11.146155 12.03622,11.717437 12.03622,12.288719 11.552038,12.751835 10.954768,12.751835 
+                    10.357498,12.751835 9.8733151,12.288719 9.8733151,11.717437 9.8733151,11.146155 10.357498,10.683038 
+                    10.954768,10.683038 z M26.416177,7.5412252 C27.013446,7.5412252 27.497629,8.0043412 27.497629,8.575624 
+                    27.497629,9.1469064 27.013446,9.610022 26.416177,9.610022 25.818906,9.610022 25.334724,9.1469064 
+                    25.334724,8.575624 25.334724,8.0043412 25.818906,7.5412252 26.416177,7.5412252 z M14.639397,7.5412252 
+                    C15.236666,7.5412252 15.72085,8.0043412 15.72085,8.575624 15.72085,9.1469064 15.236666,9.610022 14.639397,9.610022 
+                    14.042127,9.610022 13.557944,9.1469064 13.557944,8.575624 13.557944,8.0043412 14.042127,7.5412252 
+                    14.639397,7.5412252 z M20.651313,6.7780688 C21.248582,6.7780691 21.732765,7.2411851 21.732765,7.8124675 
+                    21.732765,8.3837499 21.248582,8.8468659 20.651313,8.8468659 20.054043,8.8468659 19.56986,8.3837499 19.56986,7.8124675 
+                    19.56986,7.2411851 20.054043,6.7780691 20.651313,6.7780688 z M7.4306741,6.5454441 C8.0279443,6.5454443 
+                    8.5121267,7.0085606 8.5121267,7.5798425 8.5121267,8.1511249 8.0279443,8.6142409 7.4306741,8.6142414 6.8334039,8.6142409
+                    6.3492214,8.1511249 6.3492214,7.5798425 6.3492214,7.0085606 6.8334039,6.5454443 7.4306741,6.5454441 z M17.444445,3.251 
+                    C18.041715,3.2510003 18.525898,3.714116 18.525897,4.2853986 18.525898,4.856681 18.041715,5.3197972 17.444445,5.319797 
+                    16.847176,5.3197972 16.362992,4.856681 16.362992,4.2853986 16.362992,3.714116 16.847176,3.2510003 17.444445,3.251 z"
+                    StrokeThickness="1.7"/>
+                </RadioButton.Content>
+            </RadioButton>
+
+            <RadioButton ClassId="r2" Grid.Column="1" CheckedChanged="RadioButton_CheckedChanged" >
+                <RadioButton.Content>
+                    <Path Data="M18.884629,0.89998891 L3.4969181,0.70000001 C3.4969181,0.70000001 -1.6281701,15.825419 1.9969458,22.950043 
+              5.6220618,30.074666 10.996824,29.450067 10.996824,29.450067 10.996824,29.450067 17.246281,29.324675 20.246595,22.324751 
+              23.246908,15.324828 18.884629,0.89998891 18.884629,0.89998891 z M10.949009,29.983967 L11.083003,40.366992
+              M3.5310063,40.651008 L18.497006,40.651008 M0.78400104,12.318988 L21.134006,12.318988" Grid.Column="1"/>
+                </RadioButton.Content>
+            </RadioButton>
+
+            <Grid Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" TranslationY="-30" Scale="1.3">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Grid.GestureRecognizers>
+                <Ellipse Aspect="Uniform"  Margin="7" Fill="{StaticResource fg}" InputTransparent="True"/>
+                <Path x:Name="path1" Data="M13.198005,0.70000002 L13.198005,26.500012 M0.70000003,13.69898 L25.665999,13.69898"
+                         StrokeThickness="3.5" Scale="0.7" InputTransparent="True" Rotation="0">
+                    <Path.Stroke>
+                        <SolidColorBrush Color="{StaticResource bg}"/>
+                    </Path.Stroke>
+                </Path>
+            </Grid>
+
+
+            <RadioButton ClassId="r4" Grid.Column="3" CheckedChanged="RadioButton_CheckedChanged">
+                <RadioButton.Content>
+                    <Path Data="M5.847002,23.748655 L12.668097,43.375972 19.844987,23.744014 M12.790052,22.217111 C11.506627,23.456533 
+                      9.7596056,24.219 7.8345002,24.219 3.8942247,24.219 0.70000001,21.024777 0.70000001,17.0845 0.70000001,13.759893 
+                      2.9740136,10.966409 6.0514775,10.174613 L6.2049409,10.137164 6.1998611,10.122742 C5.9567932,9.4044553 5.8250003,8.6348688 
+                      5.8250002,7.8345 5.8250003,3.8942245 9.0192247,0.70000003 12.9595,0.70000003 16.899776,0.70000003 20.094,3.8942245 
+                      20.094,7.8345 20.094,8.6291565 19.964082,9.3934689 19.724326,10.107356 M24.844,17.0845 C24.844,21.024776 21.649776,24.219 
+                      17.7095,24.219 C13.769225,24.219 10.575,21.024776 10.575,17.0845 C10.575,13.144225 13.769225,9.9500001 17.7095,9.9500001
+                      C21.649776,9.9500001 24.844,13.144225 24.844,17.0845 z" Grid.Column="3"/>
+                </RadioButton.Content>
+            </RadioButton>
+
+            <RadioButton ClassId="r5" Grid.Column="4" CheckedChanged="RadioButton_CheckedChanged">
+                <RadioButton.Content>
+                    <Path  Data="M0.69999999,21.482999 L0.74966028,0.7 7.9997092,9.1997945 C7.9997092,9.1997945 27.49987,-7.7171259 
+                      44.250004,10.866486 28.166542,29.616767 7.7497119,12.949851 7.7497119,12.949851 z M26.117014,10.233 L28.582998,19.449992 
+                      M35.220004,9.5785004 C35.220004,10.31939 34.61917,10.92 33.878004,10.92 C33.136838,10.92 32.536004,10.31939 
+                      32.536004,9.5785004 C32.536004,8.8376104 33.136838,8.2370003 33.878004,8.2370003 C34.61917,8.2370003 35.220004,8.8376104
+                      35.220004,9.5785004 z"  Grid.Column="4"/>
+                </RadioButton.Content>
+            </RadioButton>
+        </Grid>
+
+
+    </Grid>
+</ContentPage>
