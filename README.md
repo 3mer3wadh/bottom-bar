@@ -1,2 +1,1 @@
-# bottom-bar
-Custom bottom bar using xamarin forms 
+# custom UI for xamarin.forms
